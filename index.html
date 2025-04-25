@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Showcase</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header>
+    <h1>Product Showcase</h1>
+    <div class="cart-icon">
+        <span class="cart-count">0</span>
+        <button id="cart-toggle">🛒</button>
+    </div>
+</header>
+
+<main>
+    <section class="filters">
+        <div class="category-filters">
+            <h2>Categories</h2>
+            <div class="filter-options">
+                <button class="category-btn active" data-category="all">All</button>
+                <button class="category-btn" data-category="electronics">Electronics</button>
+                <button class="category-btn" data-category="clothing">Clothing</button>
+                <button class="category-btn" data-category="books">Books</button>
+            </div>
+        </div>
+
+        <div class="sort-options">
+            <label for="sort">Sort by:</label>
+            <select id="sort">
+                <option value="name-asc">Name (A-Z)</option>
+                <option value="name-desc">Name (Z-A)</option>
+                <option value="price-asc">Price (Low to High)</option>
+                <option value="price-desc">Price (High to Low)</option>
+            </select>
+        </div>
+    </section>
+
+    <section class="products-container" id="products-list">
+        <!-- Products will be dynamically added here -->
+    </section>
+
+    <aside class="cart" id="shopping-cart">
+        <h2>Shopping Cart</h2>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be added here -->
+        </div>
+        <div class="cart-total">
+            <p>Total: <span id="cart-total-amount">$0.00</span></p>
+            <button id="checkout-btn">Checkout</button>
+            <button id="clear-cart">Clear Cart</button>
+        </div>
+    </aside>
+</main>
+
+<footer>
+    <p>© 2025 JavaScript Training Project</p>
+</footer>
+
+<template id="product-template">
+    <div class="product-card">
+        <div class="product-image">
+            <img src="" alt="">
+        </div>
+        <div class="product-info">
+            <h3 class="product-name"></h3>
+            <p class="product-category"></p>
+            <p class="product-price"></p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+    </div>
+</template>
+
+<template id="cart-item-template">
+    <div class="cart-item">
+        <span class="item-name"></span>
+        <div class="item-controls">
+            <span class="item-price"></span>
+            <button class="remove-item">✕</button>
+        </div>
+    </div>
+</template>
+
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+</body>
+</html>
