@@ -97,34 +97,11 @@ class ProductDisplay {
     }
 
     filterProducts() {
-        if (this.currentCategory === 'all') {
-            this.filteredProducts = [...this.products];
-        } else {
-            this.filteredProducts = this.products.filter(
-                product => product.category === this.currentCategory
-            );
-        }
-
-        this.sortProducts();
+       // your code is here
     }
 
     sortProducts() {
-        const [property, direction] = this.currentSort.split('-');
-
-        this.filteredProducts.sort((a, b) => {
-            if (property === 'name') {
-                return direction === 'asc'
-                    ? a.name.localeCompare(b.name)
-                    : b.name.localeCompare(a.name);
-            } else if (property === 'price') {
-                return direction === 'asc'
-                    ? a.price - b.price
-                    : b.price - a.price;
-            }
-            return 0;
-        });
-
-        this.displayProducts();
+        // code is here
     }
 
     displayProducts() {

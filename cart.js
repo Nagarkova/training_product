@@ -49,14 +49,11 @@ class ShoppingCart {
     }
 
     loadCart() {
-        const savedCart = localStorage.getItem('shopping-cart');
-        if (savedCart) {
-            this.items = JSON.parse(savedCart);
-        }
+     //TODO
     }
 
     saveCart() {
-        localStorage.setItem('shopping-cart', JSON.stringify(this.items));
+        //TODO
     }
 
     addItem(product) {
@@ -86,15 +83,11 @@ class ShoppingCart {
     }
 
     removeItem(productId) {
-        this.items = this.items.filter(item => item.id !== productId);
-        this.saveCart();
-        this.renderCart();
+        //TODO
     }
 
     clearCart() {
-        this.items = [];
-        this.saveCart();
-        this.renderCart();
+      // TODO
     }
 
     calculateTotal() {
