@@ -1,3 +1,27 @@
+function customSort(arr, field, order = 'asc') {
+    return arr.sort((a, b) => {
+        const tempA = a[field];
+        const tempB = b[field];
+        if (typeof tempA === 'string' && typeof tempB === 'string') {
+            const valA = a[field]?.toString().toLowerCase() || '';
+            const valB = b[field]?.toString().toLowerCase() || '';
+
+            if (order === 'asc') {
+                return valA.localeCompare(valB);
+            } else {
+                return valB.localeCompare(valA);
+            }
+        }
+
+
+                const valA = Number(a[field]) || 0;
+                const valB = Number(b[field]) || 0;
+
+                return order === 'asc' ? valA - valB : valB - valA;
+    });
+}
+
+
 // Sample product data
 const productData = [
     {
@@ -101,7 +125,13 @@ class ProductDisplay {
     }
 
     sortProducts() {
-        // code is here
+        console.log(this.products)
+        const[field,direction] = (this.currentSort.split("-"))
+        const sortedProducts = customSort(this.products,field,direction)
+        console.log(field,direction)
+        console.log(sortedProducts)
+        this.products = sortedProducts;
+        return this.displayProducts()
     }
 
     displayProducts() {
