@@ -1,88 +1,4 @@
-function customSort(arr, field, order = 'asc') {
-    return arr.sort((a, b) => {
-        const tempA = a[field];
-        const tempB = b[field];
-        if (typeof tempA === 'string' && typeof tempB === 'string') {
-            const valA = a[field]?.toString().toLowerCase() || '';
-            const valB = b[field]?.toString().toLowerCase() || '';
 
-            if (order === 'asc') {
-                return valA.localeCompare(valB);
-            } else {
-                return valB.localeCompare(valA);
-            }
-        }
-
-
-                const valA = Number(a[field]) || 0;
-                const valB = Number(b[field]) || 0;
-
-                return order === 'asc' ? valA - valB : valB - valA;
-    });
-}
-
-
-// Sample product data
-const productData = [
-    {
-        id: 1,
-        name: "Smartphone X",
-        price: 699.99,
-        category: "electronics",
-        image: "/api/placeholder/200/200"
-    },
-    {
-        id: 2,
-        name: "Laptop Pro",
-        price: 1299.99,
-        category: "electronics",
-        image: "/api/placeholder/200/200"
-    },
-    {
-        id: 3,
-        name: "Casual T-Shirt",
-        price: 19.99,
-        category: "clothing",
-        image: "/api/placeholder/200/200"
-    },
-    {
-        id: 4,
-        name: "Jeans",
-        price: 49.99,
-        category: "clothing",
-        image: "/api/placeholder/200/200"
-    },
-    {
-        id: 5,
-        name: "JavaScript Basics",
-        price: 29.99,
-        category: "books",
-        image: "/api/placeholder/200/200"
-    },
-    {
-        id: 6,
-        name: "Web Development Guide",
-        price: 34.99,
-        category: "books",
-        image: "/api/placeholder/200/200"
-    },
-    {
-        id: 7,
-        name: "Wireless Headphones",
-        price: 149.99,
-        category: "electronics",
-        image: "/api/placeholder/200/200"
-    },
-    {
-        id: 8,
-        name: "Hooded Sweatshirt",
-        price: 39.99,
-        category: "clothing",
-        image: "/api/placeholder/200/200"
-    }
-];
-
-// Product display functionality
 class ProductDisplay {
     constructor(products) {
         this.products = products;
@@ -125,12 +41,8 @@ class ProductDisplay {
     }
 
     sortProducts() {
-        console.log(this.products)
         const[field,direction] = (this.currentSort.split("-"))
-        const sortedProducts = customSort(this.products,field,direction)
-        console.log(field,direction)
-        console.log(sortedProducts)
-        this.products = sortedProducts;
+        this.filteredProducts = customSort(this.products,field,direction)
         return this.displayProducts()
     }
 
