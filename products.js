@@ -37,7 +37,9 @@ class ProductDisplay {
     }
 
     filterProducts() {
-       // your code is here
+        const currentCategory = this.currentCategory;
+        this.filteredProducts = this.products.filter(({category}) => currentCategory === category)
+        return this.displayProducts()
     }
 
     sortProducts() {
