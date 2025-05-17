@@ -19,12 +19,6 @@
     <section class="filters">
         <div class="category-filters">
             <h2>Categories</h2>
-            <div class="filter-options">
-                <button class="category-btn active" data-category="all">All</button>
-                <button class="category-btn" data-category="electronics">Electronics</button>
-                <button class="category-btn" data-category="clothing">Clothing</button>
-                <button class="category-btn" data-category="books">Books</button>
-            </div>
         </div>
 
         <div class="sort-options">
@@ -35,6 +29,20 @@
                 <option value="price-asc">Price (Low to High)</option>
                 <option value="price-desc">Price (High to Low)</option>
             </select>
+        </div>
+        <div class="search">
+            <input type="text" id="search" placeholder="Search products..." />
+            <input type="number" id="min-price" placeholder="Min Price" />
+            <input type="number" id="max-price" placeholder="Max Price" />
+
+            <div class="category-buttons">
+                <button class="category-btn active" data-category="all">All</button>
+                <button class="category-btn" data-category="electronics">Electronics</button>
+                <button class="category-btn" data-category="clothing">Clothing</button>
+                <button class="category-btn" data-category="books">Books</button>
+            </div>
+
+
         </div>
     </section>
 

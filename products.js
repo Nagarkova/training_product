@@ -38,13 +38,13 @@ class ProductDisplay {
 
     filterProducts() {
         const currentCategory = this.currentCategory;
-        this.filteredProducts = this.products.filter(({category}) => currentCategory === category)
+        this.filteredProducts = (currentCategory === "all") ? this.products : this.products.filter(({category}) => currentCategory === category);
         return this.displayProducts()
     }
 
     sortProducts() {
         const[field,direction] = (this.currentSort.split("-"))
-        this.filteredProducts = customSort(this.products,field,direction)
+        this.filteredProducts = customSort(this.filteredProducts,field,direction)
         return this.displayProducts()
     }
 
