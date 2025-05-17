@@ -38,7 +38,7 @@ class ProductDisplay {
 
     filterProducts() {
         const currentCategory = this.currentCategory;
-        this.filteredProducts = this.products.filter(({category}) => currentCategory === category)
+        this.filteredProducts = (currentCategory === "all") ? this.products : this.products.filter(({category}) => currentCategory === category);
         return this.displayProducts()
     }
 

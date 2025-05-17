@@ -303,3 +303,67 @@ footer {
         right: 5%;
     }
 }
+/* General search section styling */
+.search {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Input fields (search, price) */
+.search input[type="text"],
+.search input[type="number"],
+.search select {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    min-width: 150px;
+    flex: 1;
+}
+
+/* Category buttons */
+.search .category-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #e0e0e0;
+    color: #333;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    font-size: 0.95rem;
+}
+
+.search .category-btn.active {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Sort select */
+.search select {
+    cursor: pointer;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .search {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search input,
+    .search select {
+        width: 100%;
+    }
+
+    .search .category-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
