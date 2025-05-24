@@ -11,7 +11,6 @@ class ProductDisplay {
         this.initializeFilters();
         this.displayProducts();
         const searchInput = document.getElementById("search");
-        console.log(searchInput)
         searchInput.addEventListener("input", (event) => this.searchProduct((event.target.value)));
     }
 
