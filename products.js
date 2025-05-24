@@ -45,7 +45,8 @@ class ProductDisplay {
         return this.displayProducts()
     }
     searchProduct(product) {
-        console.log(product)
+        this.filteredProducts = this.products.filter((item) => (item.name.toLowerCase().includes(product.toLowerCase())))
+        return this.displayProducts()
     }
     sortProducts() {
         const[field,direction] = (this.currentSort.split("-"))
