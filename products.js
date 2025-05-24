@@ -10,6 +10,8 @@ class ProductDisplay {
 
         this.initializeFilters();
         this.displayProducts();
+        const searchInput = document.getElementById("search");
+        searchInput.addEventListener("input", (event) => this.searchProduct((event.target.value)));
     }
 
     initializeFilters() {
@@ -41,7 +43,10 @@ class ProductDisplay {
         this.filteredProducts = (currentCategory === "all") ? this.products : this.products.filter(({category}) => currentCategory === category);
         return this.displayProducts()
     }
-
+    searchProduct(product) {
+        this.filteredProducts = this.products.filter((item) => (item.name.toLowerCase().includes(product.toLowerCase())))
+        return this.displayProducts()
+    }
     sortProducts() {
         const[field,direction] = (this.currentSort.split("-"))
         this.filteredProducts = customSort(this.filteredProducts,field,direction)
@@ -85,6 +90,8 @@ class ProductDisplay {
         });
     }
 }
+
+
 
 // Initialize the product display when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
