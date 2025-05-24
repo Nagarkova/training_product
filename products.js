@@ -12,6 +12,10 @@ class ProductDisplay {
         this.displayProducts();
         const searchInput = document.getElementById("search");
         searchInput.addEventListener("input", (event) => this.searchProduct((event.target.value)));
+        const min = document.getElementById("min-price");
+        const max = document.getElementById("max-price");
+        min.addEventListener("input", (event) => this.searchMin((event.target.value)));
+        max.addEventListener("input", (event) => this.searchMax((event.target.value)));
     }
 
     initializeFilters() {
@@ -52,7 +56,14 @@ class ProductDisplay {
         this.filteredProducts = customSort(this.filteredProducts,field,direction)
         return this.displayProducts()
     }
-
+    searchMin(minPrice) {
+        this.filteredProducts = this.products.filter((item) => (item.price > minPrice))
+        return this.displayProducts()
+    }
+    searchMax(maxPrice) {
+        this.filteredProducts = this.products.filter((item) => (item.price < maxPrice))
+        return this.displayProducts()
+    }
     displayProducts() {
         // Clear the container
         this.productsContainer.innerHTML = '';
